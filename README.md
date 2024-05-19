@@ -5,10 +5,8 @@ The following steps are explcitly written to help figure out how to run this doc
 ## Prerequisites for local development
 
 - [Docker](https://docs.docker.com/desktop/)
-- [Python](https://www.python.org/downloads/)
-- [Streamlit](https://streamlit.io/) - `pip install streamlit`
 
-## Run the app locally
+## Run the app via docker
 
 Create `.env` file with the following variables:
 ```bash
@@ -16,36 +14,22 @@ PROJECT_ID=
 REGION=
 ```
 
-Set up a Python virtual environment:
+Build docker image:
 ```bash
-python3 -m venv gemini-streamlit
+docker build -t my-python-app .
 ```
 
-Activate Python virtual environment:
+Run image via docker:
 ```bash
-source gemini-streamlit/bin/activate
+docker run -p 8080:8080 my-python-app
 ```
 
-Install application dependencies
-```bash
-pip install -r requirements.txt
-```
-
-Run the app:
-```bash
-streamlit run app.py \
---browser.serverAddress=localhost \
---server.enableCORS=false \
---server.enableXsrfProtection=false \
---server.port 8080
-```
+## Deploy the app to Cloud Run
 
 Enable APIs:
 ```bash
 gcloud services enable cloudbuild.googleapis.com cloudfunctions.googleapis.com run.googleapis.com logging.googleapis.com storage-component.googleapis.com aiplatform.googleapis.com
 ```
-
-## Deploy the app to Cloud Run
 
 Add the following to your `.env` file:
 ```bash
