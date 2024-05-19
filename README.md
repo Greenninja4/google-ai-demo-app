@@ -1,6 +1,9 @@
 # Vertex AI Workshop Project
 
-The following steps are explcitly written to help figure out how to run this docker image in the Google Cloud.
+The following steps are written to run a Docker image locally and in the Google cloud with Vertex AI.
+
+<img width="450" alt="Screenshot 2024-05-19 at 11 01 26 AM" src="https://github.com/Greenninja4/google-ai-demo-app/assets/15525028/ef81ec52-560b-4fa1-85a7-f1e3302a0513">
+<img width="450" alt="Screenshot 2024-05-19 at 11 02 59 AM" src="https://github.com/Greenninja4/google-ai-demo-app/assets/15525028/6aa91c4d-1c79-420e-94e8-f23d1c16b43d">
 
 ## Prerequisites for local development
 
