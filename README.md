@@ -8,20 +8,23 @@ The following steps are explcitly written to help figure out how to run this doc
 
 ## Run the app via docker
 
+Create project credentials by following the steps [here](https://developers.google.com/workspace/guides/create-credentials#create_credentials_for_a_service_account). Save the credentials JSON to `./streamlit-app/google-creds.json`.
+
 Create `.env` file with the following variables:
 ```bash
-PROJECT_ID=
-REGION=
+PROJECT_ID=<Your Project ID>
+REGION=<Your Google Cloud Region>
+GOOGLE_APPLICATION_CREDENTIALS=google-creds.json
 ```
 
-Build docker image:
+Deploy service:
 ```bash
-docker build -t vertex-ai-demo .
+docker-compose up --build -d
 ```
 
-Run image via docker:
+Bring down service:
 ```bash
-docker run -p 8080:8080 -e .env vertex-ai-demo
+docker-compose down
 ```
 
 ## Deploy the app to Cloud Run
