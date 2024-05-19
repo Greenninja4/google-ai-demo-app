@@ -1,3 +1,4 @@
 .env*
 !.env.example
 gemini-streamlit
+google-creds.json

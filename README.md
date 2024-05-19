@@ -16,12 +16,12 @@ REGION=
 
 Build docker image:
 ```bash
-docker build -t my-python-app .
+docker build -t vertex-ai-demo .
 ```
 
 Run image via docker:
 ```bash
-docker run -p 8080:8080 my-python-app
+docker run -p 8080:8080 -e .env vertex-ai-demo
 ```
 
 ## Deploy the app to Cloud Run
