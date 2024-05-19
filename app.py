@@ -13,8 +13,8 @@ log_client = cloud_logging.Client()
 log_client.setup_logging()
 
 PROJECT_ID = os.environ.get('PROJECT_ID')   # Your Qwiklabs Google Cloud Project ID
-LOCATION = os.environ.get('REGION')         # Your Qwiklabs Google Cloud Project Region
-vertexai.init(project=PROJECT_ID, location=LOCATION)
+REGION = os.environ.get('REGION')         # Your Qwiklabs Google Cloud Project Region
+vertexai.init(project=PROJECT_ID, location=REGION)
 
 @st.cache_resource
 def load_models():

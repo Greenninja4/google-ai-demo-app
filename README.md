@@ -2,22 +2,19 @@
 
 The following steps are explcitly written to help figure out how to run this docker image in the Google Cloud.
 
-## Task 1. Configure your environment and project
+## Prerequisites for local development
 
-To set your project ID and region environment variables, in Cloud Shell, run the following commands:
+- [Docker](https://docs.docker.com/desktop/)
+- [Python](https://www.python.org/downloads/)
+- [Streamlit](https://streamlit.io/) - `pip install streamlit`
+
+## Run the app locally
+
+Create `.env` file with the following variables:
 ```bash
-PROJECT_ID=$(gcloud config get-value project)
-REGION=set at lab start
-echo "PROJECT_ID=${PROJECT_ID}"
-echo "REGION=${REGION}"
+PROJECT_ID=
+REGION=
 ```
-
-Enable APIs:
-```bash
-gcloud services enable cloudbuild.googleapis.com cloudfunctions.googleapis.com run.googleapis.com logging.googleapis.com storage-component.googleapis.com aiplatform.googleapis.com
-```
-
-## Task 2. Set up the application environment
 
 Set up a Python virtual environment:
 ```bash
@@ -34,13 +31,7 @@ Install application dependencies
 pip install -r requirements.txt
 ```
 
-## Task 3. Develop the app
-
-<Developed and code written>
-
-## Task 4. Run and test the app locally
-
-Run the app lcoally:
+Run the app:
 ```bash
 streamlit run app.py \
 --browser.serverAddress=localhost \
@@ -49,14 +40,15 @@ streamlit run app.py \
 --server.port 8080
 ```
 
-## <Tasks 5-13 to set up app>
-
-## Task 14. Deploy the app to Cloud Run
-
-Set env vars:
+Enable APIs:
 ```bash
-PROJECT_ID=$(gcloud config get-value project)
-REGION=set at lab start
+gcloud services enable cloudbuild.googleapis.com cloudfunctions.googleapis.com run.googleapis.com logging.googleapis.com storage-component.googleapis.com aiplatform.googleapis.com
+```
+
+## Deploy the app to Cloud Run
+
+Add the following to your `.env` file:
+```bash
 SERVICE_NAME='gemini-app-playground' # Name of your Cloud Run service.
 AR_REPO='gemini-app-repo'            # Name of your repository in Artifact Registry that stores your application container image.
 ```
